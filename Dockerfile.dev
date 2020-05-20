@@ -1,0 +1,10 @@
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+RUN yarn install
+RUN yarn add invariant warning --save
+
+COPY . .
+CMD ["yarn", "run", "start"]
